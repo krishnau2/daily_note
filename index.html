@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Daily Note</title>
+		<script type="text/javascript" src="vendor/lodash.js"></script>
+		<script type='text/javascript' src="vendor/JSXTransformer-0.12.1.js"></script>
+	  <script type='text/javascript' src="vendor/react-with-addons-0.12.1.js"></script>
+	  <script type='text/jsx' src="index.js"></script>
+		<script src="ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+	  <style type="text/css">
+	  body{
+	  	background-color: #333333;
+	  }
+	  .btn-all-notes{
+	  	width: 70px;
+	  	height: 25px;
+	  	background-color: #126C81;
+	  	color: #ffffff;
+	  	padding: 10px 20px 10px 20px;
+  		text-decoration: none;
+	  }
+	  .wrapper{
+	  	width: 1000px;
+	  	margin-left: auto;
+	  	margin-right: auto;
+	  	border: 1px solid gray
+	  }
+	  #editor, #react-editor { 
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        width: 900px;
+        height: 400px;
+    }
+    .kk{
+    	width: 1000px;
+    	margin-left: auto;
+    	margin-right: auto;
+    	border: 1px solid red;
+    }
+	  </style>
+	</head>
+	<body>
+		<div id="main-container"></div>
+		
+		<div class="kk">
+			<div id="editor"></div>
+		</div>
+
+		<script>
+		    var editor = ace.edit("editor");
+		    editor.setTheme("ace/theme/monokai");
+		    editor.getSession().setMode("ace/mode/javascript");
+		</script>
+	</body>
+
+</html>
