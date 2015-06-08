@@ -1,67 +1,67 @@
 var Wrapper = React.createClass({
   render: function(){
     return(
-    	<div className="wrapper">
-    		<Navigation />
-    		<EditArea />    		
-    	</div>
+      <div className="wrapper">
+        <Navigation />
+        <EditArea />
+      </div>
     );
   }
 });
 
-var	Navigation = React.createClass({
-	render: function(){
-		return(
-			<div className="navigation">
-    		<a href="#" ><div className="btn-all-notes">All Notes</div></a>
-			</div>
-		);
-	}
+var Navigation = React.createClass({
+  render: function(){
+    return(
+      <div className="navigation">
+        <a href="#" ><div className="btn-all-notes">All Notes</div></a>
+      </div>
+    );
+  }
 });
 
-var	EditArea = React.createClass({
+var EditArea = React.createClass({
 
-	componentDidMount: function () {
-		var date = new Date();
-		var currentDate = date.toDateString();
-		this.editor = ace.edit("react-editor");
-		this.editor.setTheme("ace/theme/monokai");
-		this.editor.getSession().setMode("ace/mode/javascript");
-		this.editor.focus();
-		this.editor.setValue(currentDate +" \n");
-		this.editor.gotoLine(2);
-	},
+  componentDidMount: function () {
+    var date = new Date();
+    var currentDate = date.toDateString();
+    this.editor = ace.edit("react-editor");
+    this.editor.setTheme("ace/theme/monokai");
+    this.editor.getSession().setMode("ace/mode/javascript");
+    this.editor.focus();
+    this.editor.setValue(currentDate +" \n");
+    this.editor.gotoLine(2);
+  },
 
-	getEditorContent: function(){
-		return(this.editor.getValue());
-	},
+  getEditorContent: function(){
+    return(this.editor.getValue());
+  },
 
-	render: function(){
-		return(
-			<div className="edit-area">
-				<div id="react-editor" className="react-editor"></div>
-				<SaveButton editorContent={this.getEditorContent}/>
-			</div>
-		);
-	}
+  render: function(){
+    return(
+      <div className="edit-area">
+        <div id="react-editor" className="react-editor"></div>
+        <SaveButton editorContent={this.getEditorContent}/>
+      </div>
+    );
+  }
 });
 
 var SaveButton = React.createClass({
-	editorValue: function(){
-		var content = this.props.editorContent()
-		console.log(content)
-	},
+  editorValue: function(){
+    var content = this.props.editorContent()
+    console.log(content)
+  },
 
-	handleSubmit: function(e){
-		e.preventDefault();
-		this.editorValue();
-	},
+  handleSubmit: function(e){
+    e.preventDefault();
+    this.editorValue();
+  },
 
-	render: function(){
-		return(
-			<a href="#" ><div className="btn-all-notes" onClick={this.handleSubmit}>Save</div></a>
-		);
-	}
+  render: function(){
+    return(
+      <a href="#" ><div className="btn-all-notes" onClick={this.handleSubmit}>Save</div></a>
+    );
+  }
 });
 
 React.render(
