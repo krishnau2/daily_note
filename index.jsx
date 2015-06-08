@@ -26,7 +26,7 @@ var EditArea = React.createClass({
     var currentDate = date.toDateString();
     this.editor = ace.edit("react-editor");
     this.editor.setTheme("ace/theme/monokai");
-    this.editor.getSession().setMode("ace/mode/javascript");
+    this.editor.getSession().setMode("ace/mode/plain_text");
     this.editor.focus();
     this.editor.setValue(currentDate +" \n");
     this.editor.gotoLine(2);
